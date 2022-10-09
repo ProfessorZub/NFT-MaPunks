@@ -7,17 +7,17 @@ module.exports = {
       host: "127.0.0.1",
       port: 7545,
       network_id: "*",
-      gasPrice: 1000000000000 // Match any network id
+      gasPrice: 1000000000000
     },
 
-    rinkeby: {
+    goerli: {
       provider: function () {
         return new HDWalletProvider(
           [process.env.DEPLOYER_PRIVATE_KEY],
-          `wss://rinkeby.infura.io/ws/v3/${process.env.INFURA_API_KEY}` // URL to Ethereum Node
+          `https://goerli.infura.io/v3/${process.env.INFURA_API_KEY}` // URL to Ethereum Node
         )
       },
-      network_id: 4
+      network_id: 5
     },
 
     matic: {

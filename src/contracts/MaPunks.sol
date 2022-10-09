@@ -1464,13 +1464,13 @@ contract MaPunks is ERC721Enumerable, Ownable {
         require(balanceOf(msg.sender) == 0, "Only 1 mint per account");
 
         uint256 supply = totalSupply();
-        require(!isPaused);
-        require(_mintAmount > 0);
-        require(_mintAmount <= maxMintAmount);
-        require(supply + _mintAmount <= maxSupply);
+        require(!isPaused, "Minting is paused");
+        require(_mintAmount > 0, "Minting token amount must be > 0");
+        require(_mintAmount <= maxMintAmount, "Minting token amount too big");
+        require(supply + _mintAmount <= maxSupply, "No more NFTs available. Max supply reached.");
 
         if (msg.sender != owner()) {
-            require(msg.value >= cost * _mintAmount);
+            require(msg.value >= cost * _mintAmount, "Not enough ETH to cover cost of miniting");
         }
 
         for (uint256 i = 1; i <= _mintAmount; i++) {
