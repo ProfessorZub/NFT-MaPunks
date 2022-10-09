@@ -178,7 +178,7 @@ function App() {
 						</Col>
 						<Col className='flex social-icons'>
 							<a
-								href={`${openseaURL}/collection/${config.PROJECT_NAME}-v2`}
+								href={`${openseaURL}/collection/${config.PROJECT_NAME}-v3`}
 								target='_blank'
 								className='circle flex button'>
 								<img src={openseaIMG} alt="Opensea" />
